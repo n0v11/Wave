@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
+
 using Wave.Models;
 
 var builder = WebApplication.CreateBuilder(args);

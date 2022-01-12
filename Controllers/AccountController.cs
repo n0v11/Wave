@@ -98,5 +98,18 @@ namespace Wave.Controllers
         {
             return View();
         }
+
+        [HttpPost]
+        public async Task<IActionResult> MyAccount(string password, string newEmail)
+        {
+            User user = await db.Users.FirstOrDefaultAsync(x =>
+                x.Login == User.Identity.Name && x.Password == password);
+            if (string.Equals(password, user.Password))
+            {
+                user.Login = newEmail;
+            }
+            await db.SaveChangesAsync();
+            return View();
+        }
     }
 }
