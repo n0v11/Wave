@@ -1,0 +1,25 @@
+﻿@model Wave.Models.User
+@{
+    ViewBag.Title = "Добавление пользователя";
+}
+<form asp-action="create" asp-controller="home">
+    <div class="form-group">
+        <label asp-for="Id" class="control-label">Id</label>
+        <input type="text" asp-for="Id" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="UserName" class="control-label">Имя пользователя</label>
+        <input type="text" asp-for="UserName" class="form-control"/>
+    </div>
+    <div class="form-group">
+        <label asp-for="Login" class="control-label">Логин пользователя</label>
+        <input type="number" asp-for="Login" class="form-control"/>
+    </div>
+    <div class="form-group">
+        <label asp-for="Password" class="control-label">Пароль</label>
+        <input type="number" asp-for="Password" class="form-control"/>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Отправить" class="btn btn-default"/>
+    </div>
+</form>

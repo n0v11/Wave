@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Wave.Models.User>
+@{
+    ViewData["Title"] = "Home Page";
+}
+@*<a asp-action="Create">Добавить пользователя</a>
+<table class="table">
+    <tr><td>Id</td><td>Имя пользователя</td><td>Логин</td><td>Пароль</td></tr>
+    @foreach (var item in Model)
+    {
+        <tr><td>@item.Id</td><td>@item.UserName</td><td>@item.Login</td><td>@item.Password</td></tr>
+    }
+</table>*@
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+<!-- Option 1: Bootstrap Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+
+<div class="text-center">
+@*    <style>
+        body {
+            background-image: url(gif/file.gif);  /* Путь к фоновому изображению */
+            background-size: cover;
+        }
+    </style>*@
+
+    <h1 class="display-4">Welcome</h1>
+        <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+        <p>Logged as: @User.Identity.Name</p>
+    <audio controls>
+        <source id="audioSrc" src="http://radio.plaza.one/mp3" type="audio/mp3">
+        Your browser does not support the <code>audio</code> element.
+    </audio>
+</div>
