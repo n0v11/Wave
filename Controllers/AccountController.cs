@@ -94,22 +94,51 @@ namespace Wave.Controllers
         }
 
         [HttpGet]
-        public IActionResult MyAccount()
+        public IActionResult Account()
         {
+            if (User.Identity.Name == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
             return View();
         }
 
         [HttpPost]
-        public async Task<IActionResult> MyAccount(string password, string newEmail)
+        public async Task<IActionResult> EmailChange(string currentPassword, string newEmail)
         {
             User user = await db.Users.FirstOrDefaultAsync(x =>
-                x.Login == User.Identity.Name && x.Password == password);
-            if (string.Equals(password, user.Password))
+                x.Login == User.Identity.Name && x.Password == currentPassword);
+            if (string.Equals(currentPassword, user.Password))
             {
                 user.Login = newEmail;
             }
             await db.SaveChangesAsync();
-            return View();
+            return RedirectToAction("Account", "Account");
+            //return View();
+        }
+
+        //[HttpGet]
+        //public IActionResult PasswordChange()
+        //{
+        //    return RedirectToAction("Account", "Account");
+        //}
+
+        [HttpPost]
+        public async Task<IActionResult> PasswordChange(string currentPassword, string newPassword)
+        {
+            if (string.IsNullOrEmpty(currentPassword) || string.IsNullOrEmpty(newPassword))
+            {
+                return RedirectToAction("Account", "Account");
+            }
+            User user = await db.Users.FirstOrDefaultAsync(x =>
+                x.Login == User.Identity.Name && x.Password == currentPassword);
+            if (string.Equals(currentPassword, user.Password))
+            {
+                user.Password = newPassword;
+            }
+            await db.SaveChangesAsync();
+            return RedirectToAction("Account", "Account");
+            //return View();
         }
     }
 }

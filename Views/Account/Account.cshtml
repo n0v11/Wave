@@ -1,0 +1,75 @@
+﻿@model Wave.Models.User
+
+<h2>My account</h2>
+
+<div>
+    <div>
+        <button type="button" class="btn btn-outline-dark">Favourites</button>
+    </div>
+    <p></p>
+    <div>
+        <!-- Button trigger modal #1 -->
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ChangeEmail">Change Email</button>
+    </div>
+    <p></p>
+    <div>
+        <!-- Button trigger modal #2 -->
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ChangePassword">Change Password</button>
+    </div>
+    <p></p>
+    <div>
+        <input type="button" value="Logout" class="btn btn-outline-dark" onclick="location.href = '@Url.Action("Logout", "Account")'" />
+    </div>
+
+    <!-- Modal #1 -->
+    <div class="modal fade" id="ChangeEmail" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Change Email</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form method="post" asp-action="EmailChange">
+                    <div class="mb-3">
+                        <label for="current-password" class="col-form-label">Current password:</label>
+                        <input type="text" class="form-control" id="current-password" name="password">
+                    </div>
+                    <div class="mb-3">
+                        <label for="message-text" class="col-form-label">Email:</label>
+                        <input type="text" class="form-control" id="message-text" name="newEmail" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <input type="submit" value="Change" class="btn btn-primary" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal #2 -->
+    <div class="modal fade" id="ChangePassword" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel1">Change Password</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form method="post" asp-action="PasswordChange">
+                    <div class="mb-3">
+                        <label for="current-password" class="col-form-label">Current password:</label>
+                        <input type="text" class="form-control" id="current-password" name="password">
+                    </div>
+                    <div class="mb-3">
+                        <label for="message-text" class="col-form-label">New password:</label>
+                        <input type="text" class="form-control" id="message-text" name="newPassword" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <input type="submit" value="Change" class="btn btn-primary" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

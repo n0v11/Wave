@@ -23,12 +23,35 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
+                            <!-- Button trigger modal #2 -->
+                            <button type="button" class="nav-link text-dark" data-bs-toggle="modal" data-bs-target="#About">About</button>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Login">Login</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="MyAccount">MyAccount</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Account">Account</a>
                         </li>
                     </ul>
+                </div>
+            </div>
+            <!-- Modal About -->
+            <div class="modal fade" id="About" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">About</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            About modal window
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Credits</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">News</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </nav>
